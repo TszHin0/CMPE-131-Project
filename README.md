@@ -8,5 +8,5 @@ Cong He
 Project name: Spartans Games Web
 
 Including:
-A Webpage.
+A Webpage and
 Three classic games - Snake, Pong, Breakout
