@@ -1,8 +1,8 @@
 # CMPE 131 Project - GameSite
 Group 1:
-Dylan Zhang
-Tsz Hin Chan 
-Derrick Lien
+Dylan Zhang ,
+Tsz Hin Chan ,
+Derrick Lien ,
 Cong He
 
 Project name: Spartans Games Web
