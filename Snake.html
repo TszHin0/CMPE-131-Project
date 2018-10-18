@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+	    	<title>Snake</title>
+		</head>
+	
+		<body>
+			<canvas id="gameCanvas" width="400" height="400"></canvas>
+		</body>
+	
+		<script>
+			posX = 200;
+			posY = 200;
+			speed = 10;
+			foodX=foodY=290;
+			xSpeed=ySpeed=0;
+			trail = [];
+			length = 5;
+			start = false;
+			end = false;
+
+			window.onload = function() {
+				canvas = document.getElementById("gameCanvas");
+				ctx = canvas.getContext("2d");
+				document.addEventListener("keydown", keyDown);
+				refreshIntervalId = setInterval(snake, 1000/15);
+			}
+			
+			function snake() {
+				//for(var i=0; i < length && !start; i++){
+				//	trail.push({x: (posX - i * speed), y: (posY - i * speed)});
+				//}
+				posX += xSpeed;
+				posY += ySpeed;
+				if(posX < 0) {
+					posX = canvas.width - speed;
+				}
+				if(posX > canvas.width - 1) {
+					posX = 0;
+				}
+				if(posY < 0) {
+					posY = canvas.height - speed;
+				}
+				if(posY > canvas.height - 1) {
+					posY= 0;
+				}
+				ctx.fillStyle="black";
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+			
+				ctx.fillStyle = "lime";
+				ctx.strokestyle = "blue";
+		
+				for(var i=0; i < trail.length; i++) {
+					ctx.fillRect(trail[i].x , trail[i].y, 10, 10);
+					ctx.strokeRect(trail[i].x , trail[i].y, 10, 10);
+				}
+				
+				trail.push({x:posX, y:posY});
+				
+				while(trail.length > length) {
+					trail.shift();
+				}
+			
+				if(foodX == posX && foodY == posY) {
+					length++;
+					foodX = Math.floor(Math.random() * canvas.width / speed) * speed;
+					foodY = Math.floor(Math.random() * canvas.height / speed) * speed;
+				}
+				ctx.fillStyle="red";
+				ctx.fillRect(foodX, foodY, 10, 10);
+				
+        		//for (var i = 1; i < trail.length; i++) {
+        		//  if (trail[i].x == trail[0].x && trail[i].y == trail[0].y)
+        		//  	end = true;
+        		//}
+			}
+			
+			function keyDown(evt) {
+				switch(evt.keyCode) {
+					case 37:
+						xSpeed = -speed;
+						ySpeed = 0;
+						break;
+					case 38:
+						xSpeed = 0;
+						ySpeed = -speed;
+						break;
+					case 39:
+						xSpeed = speed;
+						ySpeed = 0;
+						break;
+					case 40:
+						xSpeed = 0;
+						ySpeed = 10;
+						break;
+				}
+			}
+			
+		</script>
+	</html>
