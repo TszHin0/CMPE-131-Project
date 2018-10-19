@@ -11,6 +11,7 @@
 <canvas id="Canvas" width="480" height="350"> </canvas>
 
 <script>
+// variables
 var canvas = document.getElementById("Canvas");
 var ctx = canvas.getContext("2d");
 
@@ -37,6 +38,7 @@ var score = 0;
 var level = 1;
 var lives = 3;
 
+// create blocks
 var bricks = [];
 for(var c=0; c<brick_Column_Count; c++) {
   bricks[c] = [];
@@ -104,7 +106,7 @@ function Detection()
   }
 }
 
-// Drawing Functions
+// Drawing Functions (subjects)
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, ball_Radius, 0, Math.PI*2);
@@ -137,6 +139,8 @@ function drawBricks() {
     }
   }
 }
+
+// Drawing Functions (User info)
 function drawScore() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#4AA2EF";
@@ -161,7 +165,7 @@ function drawLives() {
   ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
 
-// draw everything
+// Print everything
 function draw() 
 {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
