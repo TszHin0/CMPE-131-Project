@@ -18,8 +18,8 @@ var ctx = canvas.getContext("2d");
 var ball_Radius = 8;
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 3;
-var dy = -3;
+var dx = 4;
+var dy = -4;
 
 var paddle_Height = 8;
 var paddle_Width = 90;
@@ -154,8 +154,8 @@ function drawLevel() {
 }
 
 function drawOver() {
-  ctx.font = "50px Arial";
-  ctx.fillStyle = "#4AA2EF";
+  ctx.font = "60px Arial";
+  ctx.fillStyle = "#ED3913";
   ctx.fillText("GAME OVER", canvas.length/2,canvas.width/2);
 }
 
