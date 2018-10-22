@@ -166,7 +166,7 @@ function drawLives() {
 }
 
 // Print everything
-function draw() 
+function LevelOne() 
 {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawBricks();
@@ -214,10 +214,10 @@ function draw()
 
   x += dx;
   y += dy;
-  requestAnimationFrame(draw);
+  requestAnimationFrame(LevelOne);
 }
 
-draw();
+LevelOne();
 </script>
 
 </body>
