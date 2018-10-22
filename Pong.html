@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pong</title>
+    <style>
+    	canvas
+       {
+         background: pink;
+       }
+    </style>
+</head>
+<body>
+
+<canvas id="PongCanvas" width="900" height="720"></canvas>
+<script>
+
+  // sets canvas properties
+  var canvas = document.getElementById("PongCanvas");
+  var ctx = canvas.getContext("2d");
+  var x = canvas.width/2;
+  var y = canvas.height-30;
+  
+  // ball velocity and circumference
+  var ball_x = 2;
+  var ball_y = -2;
+  var ballRadius = 10;
+
+  // left paddle
+  var LeftPaddleWidth = 15;
+  var LeftPaddleHeight = 90;
+  var LeftPaddleX = 10;
+  var LeftPaddleY = canvas.height / 2 - LeftPaddleHeight / 2;
+
+  // right paddle
+  var RightPaddleWidth = 15;
+  var RightPaddleHeight = 90;
+  var RightPaddleX = canvas.width - (RightPaddleWidth + 10);
+  var RightPaddleY = canvas.height / 2 - RightPaddleHeight / 2;
+
+  // user key inputs
+  var leftUpPressed = false;
+  var leftDownPressed = false;
+  var rightUpPressed = false;
+  var rightDownPressed = false;
+  var leftScore = 0;
+  var rightScore = 0;
+
+  //  Displays scoreboard
+  function drawScore() 
+  {
+    ctx.font = "80px Roboto";
+    ctx.fillStyle = "white";
+    ctx.fillText(leftScore, (canvas.width / 2) - 80, 80);
+    ctx.fillText(rightScore, (canvas.width / 2) + 40, 80);
+  }
+
+  // Displays ball
+  function drawBall() 
+  {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+  }
+
+   // Draw left paddle
+   function drawLeftPaddle() 
+  {
+    ctx.beginPath();
+    ctx.rect(LeftPaddleX, LeftPaddleY, LeftPaddleWidth, LeftPaddleHeight);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+
+    // Speed of left paddle
+    if (leftDownPressed && LeftPaddleY < canvas.height - LeftPaddleHeight) 
+    {
+      LeftPaddleY += 8;
+    }
+    else if (leftUpPressed && LeftPaddleY > 0) 
+    {
+      LeftPaddleY -= 8;
+    }
+  }
+
+  // Draw right paddle
+  function drawRightPaddle()
+   {
+    ctx.beginPath();
+    ctx.rect(RightPaddleX, RightPaddleY, RightPaddleWidth, RightPaddleHeight);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+
+    // Speed of right paddle
+    if (rightDownPressed && RightPaddleY < canvas.height - RightPaddleHeight) 
+    {
+      RightPaddleY += 8;
+    }
+    else if (rightUpPressed && RightPaddleY > 0) 
+    {
+      RightPaddleY -= 8;
+    }
+  }
+
+  // Uses ASCII number for keys
+  // Player 1 - W and S
+  // Player 2 - Up Arrow and Down Arrow 
+  // Moves paddle when user is giving input
+  
+  function keydown(user) 
+  {
+      if(user.keyCode == 87) 
+      {
+          leftUpPressed = true;
+      }
+      else if (user.keyCode == 83) 
+      {
+          leftDownPressed = true;
+      }
+      if (user.keyCode == 38) 
+      {
+        rightUpPressed = true;
+      }
+      else if (user.keyCode == 40) 
+      {
+        rightDownPressed = true;
+      }
+  }
+
+  // Stops paddle when user is not giving input
+  function keyup(user)
+  {
+      if (user.keyCode == 87)
+      {
+          leftUpPressed = false;
+      }
+      else if (user.keyCode == 83) 
+      {
+          leftDownPressed = false;
+      }
+      if (user.keyCode == 38) 
+      {
+        rightUpPressed = false;
+      }
+      else if (user.keyCode == 40) 
+      {
+        rightDownPressed = false;
+      }
+  }
+
+  // Left paddle collision physics
+  function collisionLeftPaddle()
+  {
+     if ((x - ballRadius) <= 5 + LeftPaddleWidth) 
+     {
+       if (y >LeftPaddleY && y < LeftPaddleY + LeftPaddleHeight)
+       {
+         ball_x = -ball_x;
+       }
+       else if ((x - ballRadius) <= 0)
+       {
+         rightScore++;
+         x = canvas.width / 2;
+         y = canvas.height / 2;
+       }
+     }
+  }
+  
+  // Right paddle collision physics
+  function collisionRightPaddle() 
+  {
+    if ((x + ballRadius) >= canvas.width - (RightPaddleWidth + 5)) 
+    {
+      if (y > RightPaddleY && y < RightPaddleY + RightPaddleHeight)
+      {
+        ball_x = -ball_x;
+      }
+      else if (x + ballRadius >= canvas.width) 
+      {
+        leftScore++;
+        x = canvas.width / 2;
+        y = canvas.height / 2;
+      }
+    }
+  }
+  
+  // Puts collisions together  
+  function computeCollision() 
+  {
+    collisionLeftPaddle();
+    collisionRightPaddle();
+
+    // Makes sure ball doesn't go out of bounds for y portion of canvas
+    if (((y - ballRadius) <= 0) || ((y + ballRadius) >= canvas.height)) 
+    {
+        ball_y = -ball_y;
+    }
+  }
+
+  // Puts everything together
+  function draw() 
+  {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawScore();
+    drawLeftPaddle();
+    drawRightPaddle();
+    drawBall();
+    computeCollision();
+    x += ball_x;
+    y += ball_y;
+  }
+  
+  // Interval sets update rate
+  setInterval(draw, 10);
+  document.addEventListener("keydown", keydown, false);
+  document.addEventListener("keyup", keyup, false);
+
+</script>
+</body>
+</html>
