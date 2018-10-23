@@ -18,8 +18,8 @@ var ctx = canvas.getContext("2d");
 var ball_Radius = 8;
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 4;
-var dy = -4;
+var dx = 7;
+var dy = -7;
 
 var paddle_Height = 8;
 var paddle_Width = 90;
@@ -27,6 +27,7 @@ var paddleX = (canvas.width-paddle_Width)/2;
 var Press_Right = false;
 var Press_Left = false;
 
+var bricks = [];
 var brick_Row_Count = 7;
 var brick_Column_Count = 4;
 var brick_Width = 50;
@@ -34,17 +35,18 @@ var brick_Height = 20;
 var brick_Padding = 10;
 var brick_setTop = 40;
 var brick_setLeft = 35;
+
 var score = 0;
 var level = 1;
-var lives = 3;
+var lives = 10;
 
-// create blocks
-var bricks = [];
-for(var c=0; c<brick_Column_Count; c++) {
+// initialize blocks
+for(var c=0; c<brick_Column_Count; c++)
+{
   bricks[c] = [];
-  for(var r=0; r<brick_Row_Count; r++) {
-    bricks[c][r] = { x: 0, y: 0, status: 1 };
-  }
+    for(var r=0; r<brick_Row_Count; r++) {
+      bricks[c][r] = { x: 0, y: 0, status: 1 };
+      }
 }
 
 // User Control
@@ -165,18 +167,9 @@ function drawLives() {
   ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
 
-// Print everything
-function LevelOne() 
+// Moving controls and detect game over
+function Controls()
 {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBricks();
-  drawBall();
-  drawPaddle();
-  drawScore();
-  drawLevel();
-  drawLives();
-  Detection();
-
   if(x + dx > canvas.width-ball_Radius || x + dx < ball_Radius) {
     dx = -dx;
   }
@@ -198,8 +191,8 @@ function LevelOne()
       else {
         x = canvas.width/2;
         y = canvas.height-30;
-        dx = 3;
-        dy = -3;
+        dx = 7;
+        dy = -7;
         paddleX = (canvas.width-paddle_Width)/2;
       }
     }
@@ -214,10 +207,26 @@ function LevelOne()
 
   x += dx;
   y += dy;
-  requestAnimationFrame(LevelOne);
 }
 
-LevelOne();
+// Print everything
+function levelOne() 
+{
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  drawBricks();
+  drawBall();
+  drawPaddle();
+  drawScore();
+  drawLevel();
+  drawLives();
+  Detection();
+  Controls();
+  
+  requestAnimationFrame(levelOne);
+}
+
+levelOne();
 </script>
 
 </body>
