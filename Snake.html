@@ -9,15 +9,15 @@
 		</body>
 	
 		<script>
+			count = 0;
 			posX = 200;
 			posY = 200;
 			speed = 10;
 			foodX=foodY=290;
 			xSpeed=ySpeed=0;
 			trail = [];
-			length = 5;
+			length = 4;
 			start = false;
-			end = false;
 
 			window.onload = function() {
 				canvas = document.getElementById("gameCanvas");
@@ -63,16 +63,18 @@
 			
 				if(foodX == posX && foodY == posY) {
 					length++;
+					start = true;
 					foodX = Math.floor(Math.random() * canvas.width / speed) * speed;
 					foodY = Math.floor(Math.random() * canvas.height / speed) * speed;
 				}
 				ctx.fillStyle="red";
 				ctx.fillRect(foodX, foodY, 10, 10);
 				
-        		//for (var i = 1; i < trail.length; i++) {
-        		//  if (trail[i].x == trail[0].x && trail[i].y == trail[0].y)
-        		//  	end = true;
-        		//}
+        		for (var i = 1; i < trail.length; i++) {
+        			if (start && trail[i].x == trail[0].x && trail[i].y == trail[0].y) {
+	        			alert("You died");
+        			}
+        		}
 			}
 			
 			function keyDown(evt) {
