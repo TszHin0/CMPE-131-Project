@@ -80,20 +80,28 @@
 			function keyDown(evt) {
 				switch(evt.keyCode) {
 					case 37:
-						xSpeed = -speed;
-						ySpeed = 0;
+						if(xSpeed != speed){
+							xSpeed = -speed;
+							ySpeed = 0;
+						}
 						break;
 					case 38:
-						xSpeed = 0;
-						ySpeed = -speed;
+						if(ySpeed != speed){
+							xSpeed = 0;
+							ySpeed = -speed;
+						}
 						break;
 					case 39:
-						xSpeed = speed;
-						ySpeed = 0;
+						if(xSpeed != -speed){
+							xSpeed = speed;
+							ySpeed = 0;
+						}
 						break;
 					case 40:
-						xSpeed = 0;
-						ySpeed = 10;
+						if(ySpeed != -speed){
+							xSpeed = 0;
+							ySpeed = speed;
+						}
 						break;
 				}
 			}
