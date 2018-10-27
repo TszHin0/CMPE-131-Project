@@ -1,111 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Spartans Games Web</title>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-
-</head>
+<html>
 <body>
-	<header>
-		<div id="menu_icon"></div>
-		<nav>
-			<ul>
-				<li><a href="index.html" class="selected">Home</a></li>
-				<li><a href="#">Snake</a></li>
-				<li><a href="#">PingPong</a></li>
-				<li><a href="#">Breakout</a></li>
-				<li><a href="contact.html">Survey</a></li>
-			</ul>
-		</nav><!-- end navigation menu -->
-        <div class="footer clearfix"><h1>
-			<ul class="social clearfix">
-				<li><a href="" target="_blank" class="fb" data-title="Facebook"></a></li>
-				<li><a href="" target="_blank" class="google" data-title="Google +"></a></li>
-				<!--<li><a href="http://twitter.com/pixelhint" target="_blank" class="twitter" data-title="Twitter"></a></li>
-				<li><a href="http://dribbble.com/pixelhint" target="_blank" class="dribble" data-title="Dribble"></a></li>-->
-				<!--<li><a href="http://facebook.com/pixelhint" target="_blank" class="wc" data-title="WeChat"></a></li>-->
-			</ul><!-- end social -->
-            </h1>
-		</div ><!-- end footer -->
-	</header><!-- end header -->
-	<section class="main clearfix">
-		<div class="work">
-			<a href="Breakout.html">
-				<img src="https://i.postimg.cc/cJQQ4QP1/Screen-Shot-2018-10-12-at-9-27-28-PM.png" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Breakout is an arcade game developed and published by Atari, Inc., released on May 13, 1976. It was conceptualized by Nolan Bushnell and Steve Bristow, influenced by the 1972 Atari arcade game Pong, and built by Steve Wozniak aided by Steve Jobs.</h1>
-					</div>
-				</div>
-			</a>
-		</div>
+<style>
+/* background color*/
+    body{
+        background-color:#3abff0;
+        position: fixed; 
+    }
+    
+    ul{
+        width:550px;
+        height:150px;
+        display: block;
+        margin: 25px auto;
+    }
+    
+    ul li{
+        width: 80px;
+        height: 40px;
+        display: block;
+        text-align: center;
+        float: left;
+        font-size: 18px;
+        margin-right: 25px;
+    }
+    /* Set SJSU Logo postion */
+    a{
+        background-position: left;
+    }
+    
+    a:link,a:visited{
+        display:block;
+        width:120px;
+        font-weight:bold;
+        color:#FFFFFF;
+        background-color:#3abff0;
+        text-align:center;
+        text-decoration:none;
+        text-transform:uppercase;
+    }
+    
+    a:hover,a:active{
+        background-color:#3abff0;
+    }
+    
+    /* control SJSU Logo postion */
+    img{
+        position: fixed;
+        margin-top: 50px;
+    }
+    
+</style>
+<table width="1680" border="0">
+<a href='https://postimg.cc/1V62GJgv' target='_blank'><img src='https://i.postimg.cc/1V62GJgv/Picture1.png' width="280px" border='0' alt='Picture1'/></a>
+<tr>
+    <td style="background-color:#3abff0;">
+        <ul>
+            <!--Set space with each title-->
+            <li style="margin-right:18px"><a href="Breakout.html" target="_blank">Home</a></li>
+            <li style="margin-right:41px"><a href="Breakout.html" target="_blank">Snake</a></li>
+            <li style="margin-right:35px"><a href="Breakout.html" target="_blank">Breakout</a></li>
+            <li style="margin-right:13px"><a href="Breakout.html" target="_blank">Pong</a></li>
+            <li><a href="Breakout.html" target="_blank">About</a></li>
+        </ul>
+    </td>
+</tr>
+<tr>
+<td style="background-color:#eeeeee;height:500px;width:400px;">
+2323</td>
+</tr>
 
-		<div class="work">
-			<a href="Pong.html">
-				<img src="https://i.postimg.cc/gkxCnJsL/Screen-Shot-2018-10-12-at-6-54-55-PM.png" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-                        <h1>Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics. The game was originally manufactured by Atari, which released it in 1972. Allan Alcorn created Pong as a training exercise assigned to him by Atari co-founder Nolan Bushnell.</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="Snake.html">
-				<img src="https://i.postimg.cc/j55bchHZ/Screen-Shot-2018-10-12-at-9-06-29-PM.png" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-						<h1>Snake is the common name for a video game concept where the player maneuvers a line which grows in length, with the line itself being a primary obstacle. The concept originated in the 1976 arcade game Blockade, and the ease of implementing Snake has led to hundreds of versions for many platforms.</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="Pong.html">
-				<img src="https://i.postimg.cc/tgHkDVDn/Screen-Shot-2018-10-12-at-6-01-45-PM.png" class="media" alt=""/>
-				    <div class="caption">
-					   <div class="work_title">
-						<h1>Pong is one of the earliest arcade video games. It is a table tennis sports game featuring simple two-dimensional graphics. The game was originally manufactured by Atari, which released it in 1972. Allan Alcorn created Pong as a training exercise assigned to him by Atari co-founder Nolan Bushnell.</h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="https://www.mmorpg.com">
-				<img src="https://i.postimg.cc/tgHkDVDn/Screen-Shot-2018-10-12-at-6-01-45-PM.png" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-                        <h1><marquee direction="left" behavior="scroll" scrollamount="3" scrolldelay="0" loop="-1" width="390" height="195" bgcolor="#fcfdfd" hspace="10" vspace="10">
-                            <img src="https://i.postimg.cc/VvbY3J1y/Screen-Shot-2018-10-13-at-3-49-34-PM.png">
-                            <img src="https://i.postimg.cc/g2K6MTNV/Screen-Shot-2018-10-13-at-3-49-07-PM.png">
-                            <img src="https://i.postimg.cc/htNN52vG/Screen-Shot-2018-10-13-at-3-53-55-PM.png">
-                            <img src="https://i.postimg.cc/WbLnCx6C/Screen-Shot-2018-10-13-at-3-59-03-PM.png">
-                            </marquee>
-                        </h1>
-					</div>
-				</div>
-			</a>
-		</div>
-
-		<div class="work">
-			<a href="inner.html">
-				<img src="https://i.postimg.cc/rmKNny1J/Screen-Shot-2018-10-23-at-11-02-16-AM.png" class="media" alt=""/>
-				<div class="caption">
-					<div class="work_title">
-                        <h1></h1>  
-					</div>
-				</div>
-			</a>
-		</div>
-	</section><!-- end main -->
-	
+<tr>
+<td colspan="2" style="background-color:#3abff0;text-align:center; height:100px">
+12333333</td>
+</tr>
+</table>
 </body>
 </html>
