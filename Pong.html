@@ -6,6 +6,8 @@
     <style>
     	canvas
        {
+         display: block;
+         margin: auto;
          background: pink;
        }
     </style>
@@ -15,6 +17,15 @@
 <canvas id="PongCanvas" width="900" height="720"></canvas>
 <script>
 
+  // add menu to select whether player or com
+  // ai should be set to follow ball x pos
+  // convert paddles into class objects
+
+  /* computer play
+  var ai_paddle = ;
+  
+  */
+    
   // sets canvas properties
   var canvas = document.getElementById("PongCanvas");
   var ctx = canvas.getContext("2d");
