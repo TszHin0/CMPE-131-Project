@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <script type="text/javascript"> 
+            function enter(){ 
+                var username=document.getElementById("username").value;//Get username from form. 
+                var password=document.getElementById("password").value; 
+                var regex=/^[/s]+$/;//Determine username whether or not include illegal characters
+        if(regex.test(username)||username.length==0)//Determine username whether or not invalid or include illegal characters
+        { 
+                alert("Username is invalid."); 
+                return false; 
+        } 
+        if(regex.test(password)||password.length==0)//Determine password whether or not invalid or include illegal characters
+        { 
+                alert("Password not given"); 
+                return false; 
+        } 
+                return true; 
+        } 
+            function register(){ 
+                window.location.href="register.html";//jump to register.html
+        } 
+  </script>
+    </head>
 <body>
 <style>
-/* background color*/
+    /* background color*/
     body{
         background-color:#3abff0;
         position: fixed; 
     }
     
+    /* Set title home, snake, breakout, pong*/
     ul{
-        width:550px;
+        width:600px;
         height:150px;
         display: block;
-        margin: 25px auto;
+        margin-left: 470px;
     }
     
     ul li{
         width: 80px;
-        height: 40px;
+        height: 10px;
         display: block;
         text-align: center;
         float: left;
-        font-size: 18px;
-        margin-right: 25px;
-    }
-    /* Set SJSU Logo postion */
-    a{
-        background-position: left;
+        font-size: 25px;
     }
     
+     /* Set elements of link */
     a:link,a:visited{
         display:block;
         width:120px;
@@ -40,6 +60,7 @@
         text-transform:uppercase;
     }
     
+    /* Set elements of link */
     a:hover,a:active{
         background-color:#3abff0;
     }
@@ -47,33 +68,155 @@
     /* control SJSU Logo postion */
     img{
         position: fixed;
-        margin-top: 50px;
+        margin-top: 1px;
+        
+    }
+    
+    /* Horizontal display three games */
+    dl dt{
+        float: left;
+    }
+    
+    /* Set SJSU Logo postion */
+    .yi{
+        background-position: left;
+    }
+    
+    /* Set facebook logo */
+    .er{
+        top: 820px;
+        left: 20px;
+    }
+    
+    /* Set twitter logo */
+    .san{
+        top: 820px;
+        left: 80px;
+    }
+    
+    /* Set twitter logo */
+    .si{
+        top: 820px;
+        left: 140px;
+    }
+    
+    /* Set twitter logo */
+    .wu{
+        top: 820px;
+        left: 200px;
+    }
+    
+    /* Set Copyright */
+    .div_foot{
+        position: fixed;
+        top:860px;
+        right: 660px;
+    }
+    
+    /* Set class= div_img pamameter */
+    .div_img{
+        top:110px;
+        right: 770px;
+        width: 120px;
+        height: 120px;
+    }
+    
+    /* Set social networking's position */
+    .p{
+        top;110px;
     }
     
 </style>
+    
+    
+    <!--Set Link's titles and Web's logo -->
 <table width="1680" border="0">
-<a href='https://postimg.cc/1V62GJgv' target='_blank'><img src='https://i.postimg.cc/1V62GJgv/Picture1.png' width="280px" border='0' alt='Picture1'/></a>
+        <img src='https://i.postimg.cc/g2Y4Bnb9/head1.png' width="280px" border='0' alt='Picture1'/>
 <tr>
     <td style="background-color:#3abff0;">
         <ul>
             <!--Set space with each title-->
-            <li style="margin-right:18px"><a href="Breakout.html" target="_blank">Home</a></li>
-            <li style="margin-right:41px"><a href="Breakout.html" target="_blank">Snake</a></li>
-            <li style="margin-right:35px"><a href="Breakout.html" target="_blank">Breakout</a></li>
-            <li style="margin-right:13px"><a href="Breakout.html" target="_blank">Pong</a></li>
-            <li><a href="Breakout.html" target="_blank">About</a></li>
+            <li style="margin-right:40px; margin-top: 60px "><a class="yi" href="index.html" target="_blank">Home</a></li>
+            <li style="margin-right:60px; margin-top: 60px"><a class="er" href="Snake.html" target="_blank">Snake</a></li>
+            <li style="margin-right:50px; margin-top: 60px"><a class="san" href="Breakout.html" target="_blank">Breakout</a></li>
+            <li style="margin-left:20px; margin-top: 60px"><a class="si" href="Pong.html" target="_blank">Pong</a></li>
+            <li style="margin-left:30px; margin-top: 60px"><a class="wu" href="About.html" target="_blank">About</a></li>
         </ul>
     </td>
 </tr>
 <tr>
-<td style="background-color:#eeeeee;height:500px;width:400px;">
-2323</td>
+    <!--Set elements of three games -->
+<td style="background-color:#3abff0;height:500px;width:400px;">
+    <dl>
+        <dt><a href="Snake.html" target="_blank"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:40px" src="https://i.postimg.cc/1RYr8Z5h/Screen-Shot-2018-10-12-at-9-06-29-PM.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="Breakout.html" target="_blank"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:590px" src="https://i.postimg.cc/kg0mq5pj/321.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="Pong.html" target="_blank"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:1140px" src="https://i.postimg.cc/hjM6z42R/123.png" alt="Valid CSS!" /></a></dt>
+    </dl>
+ </td>
 </tr>
-
-<tr>
-<td colspan="2" style="background-color:#3abff0;text-align:center; height:100px">
-12333333</td>
-</tr>
+    <!--Build a survey system 
+<form name="form2" action="mailto:fyy0528@sina.com" method="post" enctype="text/plain" >
+    <table width="22%" border="1" bordercolorlight="#5a77d4" bordercolordark="#FFFFFF" bgcolor="#f1f7ac" cellpadding="2" align="right">
+        <tr> 
+            <td colspan="2"> <div align="center"><b>Feedback</b></div></td>
+        </tr>
+        <tr> 
+            <td>Name： <input type="text" name="textfield" size="8"> </td>
+            <td>E_mail: <input type="text" name="textfield2" size="10" maxlength="20"> </td>
+        </tr>
+        <tr> 
+            <td colspan="2"> <div align="center">Coment<br> <textarea name="textfield3" cols="30" rows="3"></textarea>
+                </div>
+            </td>
+        </tr>
+        <tr> 
+            <td> <div align="right"> <input type="submit" name="Submit" value="Submit"> </div> </td>
+            <td> <input type="reset" name="Submit2" value="Reset"> </td>
+        </tr>
 </table>
+</form>
+-->
+    
+    <!--Set elements of social networking -->
+<h1>
+    <p>
+        <a href="Breakout.html" target="_blank"><img class="er" src="https://i.postimg.cc/yY72HbyS/Facebook-Icon-Black-1.png" alt="facebook" width="50px" height="45px"></a>
+    </p>
+    <p>
+        <a href="Breakout.html" target="_blank"><img class="san" src="https://i.postimg.cc/cCTVtRBm/black-and-white-twitter-logo.png" alt="twitter" width="50px" height="45px"></a>
+    </p>
+    <p>
+        <a href="Breakout.html" target="_blank"><img class="si" src="https://i.postimg.cc/x1yn9zW6/insta.png" alt="instagram" width="55px" height="50px"></a> 
+    </p>
+    <p>
+        <a href="Breakout.html" target="_blank"><img class="wu" src="https://i.postimg.cc/nzzXqKyL/wechat-114608.png" alt="wechat" width="55px" height="50px"></a> 
+    </p>
+</h1>
+</table>
+    <!--Set Copyright -->
+<div class="div_foot">
+    Copyright&copy;2018 All Right Reserved. SE131 GROUP ONE
+</div>
+    
+    <!--Set registration
+    <div>
+        <form name="form1" action="mailto:zh_zachary@yahoo.com" method="sent" enctype="text/plain">
+            <p style="margin-top:-700px; margin-right: 50px" align="right">User Name:<input type="text" name="text1" size="20" maxlength="20"><br>(4-20 characters,no spaces)<br>
+                Password:<input type="password" name="text3" size="20" maxlength="20"><br>
+                (6-20 characters, at least 1 letter)<br>
+                <br>
+                E_mail:<input type="text" name="text2" size="20" maxlength="24" value="*****@*.*"> </p>
+            <p style="margin-right: 65px" align="right"> 
+                <input type="submit" name="Submit" value="Submit">
+                <input type="reset" name="Reset" value="Reset">
+            </p>
+        </form>  
+    </div>-->
+    
+    <form style="margin-top: -650px; margin-right:50px " action="enter.php" method="post"           onsubmit="return enter()" align="right"> 
+        Username: <input type="text" name="username" id="username"><br> Password: <input
+        type="password" name="password" id="password"><br> <input
+        type="submit" value="Login">  <input type="button" value="Register" onclick="register();"> 
+    </form>   
 </body>
 </html>
