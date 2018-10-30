@@ -17,8 +17,8 @@ var ctx = canvas.getContext("2d");
 var ball_Radius = 8;
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 4;
-var dy = -4;
+var dx = 5;
+var dy = -5;
 var paddle_Height = 8;
 var paddle_Width = 90;
 var paddleX = (canvas.width-paddle_Width)/2;
@@ -34,7 +34,7 @@ var brick_setTop = 40;
 var brick_setLeft = 35;
 var score = 0;
 var level = 1;
-var lives = 10;
+var lives = 5;
     
 // initialize blocks
 for(var c=0; c<brick_Column_Count; c++)
@@ -91,59 +91,7 @@ function DetectionOne()
           score++;
           if(score == brick_Row_Count*brick_Column_Count) 
           {
-            level ++;
-            levelTwo();
-          }
-        }
-      }
-    }
-  }
-}
-    
-// Check Collision for level 2
-function DetectionTwo() 
-{
-  for(var c=0; c<brick_Column_Count; c++) 
-  {
-    for(var r=0; r<brick_Row_Count; r++) 
-    {
-      var b = bricks[c][r];
-      if(b.status == 1) 
-      {
-        if((x > b.x && x < b.x+brick_Width) && (y > b.y && y < b.y+brick_Height)) 
-        {
-          dy = -dy;
-          b.status = 0;
-          score++;
-          if(score == brick_Row_Count*brick_Column_Count) 
-          {
-            level ++;
-            levelThree();
-          }
-        }
-      }
-    }
-  }
-}
-    
-// Check Collision for level 3
-function DetectionThree() 
-{
-  for(var c=0; c<brick_Column_Count; c++) 
-  {
-    for(var r=0; r<brick_Row_Count; r++) 
-    {
-      var b = bricks[c][r];
-      if(b.status == 1) 
-      {
-        if((x > b.x && x < b.x+brick_Width) && (y > b.y && y < b.y+brick_Height)) 
-        {
-          dy = -dy;
-          b.status = 0;
-          score++;
-          if(score == brick_Row_Count*brick_Column_Count) 
-          {
-            alert("YOU WIN!"); // Print out winning info
+            alert("WIN!"+" You got " + score + " points"); // Print out winning info
             document.location.reload(); 
           }
         }
@@ -205,6 +153,7 @@ function drawLives() {
   ctx.fillStyle = "#4AA2EF";
   ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
+
 // Moving controls and detect game over
 function Controls()
 {
@@ -229,8 +178,8 @@ function Controls()
       else {
         x = canvas.width/2; //startover
         y = canvas.height-30;
-        dx = 4;
-        dy = -4;
+        dx = 5;
+        dy = -5;
         paddleX = (canvas.width-paddle_Width)/2;
       }
     }
@@ -244,6 +193,7 @@ function Controls()
   x += dx;
   y += dy;
 }
+
 // Print everything for level 1
 function levelOne() 
 {
@@ -261,37 +211,6 @@ function levelOne()
 }
 levelOne();
 
-// Print everything for level 2
-function levelTwo()
-{
- ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBricks();
-  drawBall();
-  drawPaddle();
-  drawScore();
-  drawLevel();
-  drawLives();
-  DetectionTwo();
-  Controls();
-  
-  requestAnimationFrame(levelTwo);
-}
-
-// Print everything for level 3
-function levelThree()
-{
- ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawBricks();
-  drawBall();
-  drawPaddle();
-  drawScore();
-  drawLevel();
-  drawLives();
-  DetectionThree();
-  Controls();
-  
-  requestAnimationFrame(levelThree);  
-}
 </script>
 
 </body>
