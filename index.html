@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8"> 
         <script type="text/javascript"> 
+			function load_snake() { document.getElementById("gameCenter").innerHTML = '<object type="text/html" data="Snake.html" width="100%" height="100%"></object>'; }
+			function load_pong() { document.getElementById("gameCenter").innerHTML = '<object type="text/html" data="Pong.html" width="100%" height="100%"></object>'; }
+			function load_breakout() { document.getElementById("gameCenter").innerHTML = '<object type="text/html" data="Breakout.html" width="100%" height="100%"></object>'; }
             function enter(){ 
                 var username=document.getElementById("username").value;//Get username from form. 
                 var password=document.getElementById("password").value; 
@@ -26,9 +30,11 @@
 <body>
 <style>
     /* background color*/
+    @media screen and (min-width: 480px){
     body{
         background-color:#3abff0;
-        position: fixed; 
+        padding:10px;
+    }
     }
     
     /* Set title home, snake, breakout, pong*/
@@ -127,8 +133,6 @@
     }
     
 </style>
-    
-    
     <!--Set Link's titles and Web's logo -->
 <table width="1680" border="0">
         <img src='https://i.postimg.cc/g2Y4Bnb9/head1.png' width="280px" border='0' alt='Picture1'/>
@@ -136,21 +140,21 @@
     <td style="background-color:#3abff0;">
         <ul>
             <!--Set space with each title-->
-            <li style="margin-right:40px; margin-top: 60px "><a class="yi" href="index.html" target="_blank">Home</a></li>
-            <li style="margin-right:60px; margin-top: 60px"><a class="er" href="Snake.html" target="_blank">Snake</a></li>
-            <li style="margin-right:50px; margin-top: 60px"><a class="san" href="Breakout.html" target="_blank">Breakout</a></li>
-            <li style="margin-left:20px; margin-top: 60px"><a class="si" href="Pong.html" target="_blank">Pong</a></li>
-            <li style="margin-left:30px; margin-top: 60px"><a class="wu" href="About.html" target="_blank">About</a></li>
+            <li style="margin-right:40px; margin-top: 60px "><a class="yi" href="index.html">Home</a></li>
+            <li style="margin-right:60px; margin-top: 60px"><a class="er" href="javascript:load_snake();">Snake</a></li>
+            <li style="margin-right:50px; margin-top: 60px"><a class="san" href="javascript:load_breakout();">Breakout</a></li>
+            <li style="margin-left:20px; margin-top: 60px"><a class="si" href="javascript:load_pong();">Pong</a></li>
+            <li style="margin-left:30px; margin-top: 60px"><a class="wu" href="About.html">About</a></li>
         </ul>
     </td>
 </tr>
 <tr>
     <!--Set elements of three games -->
-<td style="background-color:#3abff0;height:500px;width:400px;">
+<td id="gameCenter" style="background-color:#3abff0;height:500px;width:400px;">
     <dl>
-        <dt><a href="Snake.html" target="_blank"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:40px" src="https://i.postimg.cc/1RYr8Z5h/Screen-Shot-2018-10-12-at-9-06-29-PM.png" alt="Valid CSS!" /></a></dt>
-        <dt><a href="Breakout.html" target="_blank"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:590px" src="https://i.postimg.cc/kg0mq5pj/321.png" alt="Valid CSS!" /></a></dt>
-        <dt><a href="Pong.html" target="_blank"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:1140px" src="https://i.postimg.cc/hjM6z42R/123.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="javascript:load_snake();"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:40px" src="https://i.postimg.cc/1RYr8Z5h/Screen-Shot-2018-10-12-at-9-06-29-PM.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="javascript:load_breakout();"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:590px" src="https://i.postimg.cc/kg0mq5pj/321.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="javascript:load_pong();"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:1140px" src="https://i.postimg.cc/hjM6z42R/123.png" alt="Valid CSS!" /></a></dt>
     </dl>
  </td>
 </tr>
@@ -195,7 +199,7 @@
 </table>
     <!--Set Copyright -->
 <div class="div_foot">
-    Copyright&copy;2018 All Right Reserved. SE131 GROUP ONE
+    Copyright&copy;2018 All Right Reserved. SE131 GROUP
 </div>
     
     <!--Set registration
