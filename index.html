@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript"> 
 			function load_snake() { document.getElementById("gameCenter").innerHTML = '<object type="text/html" data="Snake.html" width="100%" height="100%"></object>'; }
 			function load_pong() { document.getElementById("gameCenter").innerHTML = '<object type="text/html" data="Pong.html" width="100%" height="100%"></object>'; }
@@ -30,11 +31,14 @@
 <body>
 <style>
     /* background color*/
-    @media screen and (min-width: 480px){
+    html, body, table{
+        height: 90%;
+        min-width: 100% !important;
+        width: 100%;
+    }
     body{
         background-color:#3abff0;
         padding:10px;
-    }
     }
     
     /* Set title home, snake, breakout, pong*/
@@ -46,8 +50,8 @@
     }
     
     ul li{
-        width: 80px;
-        height: 10px;
+        width: 12%;
+        height: 10%;
         display: block;
         text-align: center;
         float: left;
@@ -90,66 +94,71 @@
     
     /* Set facebook logo */
     .er{
-        top: 820px;
+        top: 92%;
         left: 20px;
     }
     
     /* Set twitter logo */
     .san{
-        top: 820px;
+        top: 92%;
         left: 80px;
     }
     
     /* Set twitter logo */
     .si{
-        top: 820px;
+        top: 92%;
         left: 140px;
     }
     
     /* Set twitter logo */
     .wu{
-        top: 820px;
+        top: 92%;
         left: 200px;
     }
     
     /* Set Copyright */
     .div_foot{
         position: fixed;
-        top:860px;
-        right: 660px;
+        top:97%;
+        right: 40%;
     }
     
     /* Set class= div_img pamameter */
     .div_img{
-        top:auto;
         right: 78%;
-        width: 19%;
-        height: 25%;
+        width: 20%;
+        height: 24%;
+    }
+    
+    .bar{
+        position: absolute;
+        top: 1%;
     }
     
 </style>
     <!--Set Link's titles and Web's logo -->
-<table width="1680" border="0">
-        <img class="div_img" src='https://i.postimg.cc/g2Y4Bnb9/head1.png' width="280px" border='0' alt='Picture1'/>
+<table>
+        
 <tr>
-    <td style="background-color:#3abff0;">
+    <td class="bar" style="background-color:#3abff0;">
+        <img class="div_img" src='https://i.postimg.cc/g2Y4Bnb9/head1.png' alt='Picture1'/>
         <ul>
             <!--Set space with each title-->
-            <li style="margin-right:40px; margin-top: 60px "><a class="yi" href="index.html">Home</a></li>
-            <li style="margin-right:60px; margin-top: 60px"><a class="er" href="javascript:load_snake();">Snake</a></li>
-            <li style="margin-right:50px; margin-top: 60px"><a class="san" href="javascript:load_breakout();">Breakout</a></li>
-            <li style="margin-left:20px; margin-top: 60px"><a class="si" href="javascript:load_pong();">Pong</a></li>
-            <li style="margin-left:30px; margin-top: 60px"><a class="wu" href="About.html">About</a></li>
+            <li style="margin-right:8%; margin-top: 10%"><a href="index.html">Home</a></li>
+            <li style="margin-right:11%; margin-top: 10%"><a href="javascript:load_snake();">Snake</a></li>
+            <li style="margin-right:13%; margin-top: 10%"><a href="javascript:load_breakout();">Breakout</a></li>
+            <li style="margin-left:1%; margin-top: 10%"><a href="javascript:load_pong();">Pong</a></li>
+            <li style="margin-left:5%; margin-top: 10%"><a href="About.html">About</a></li>
         </ul>
     </td>
 </tr>
 <tr>
     <!--Set elements of three games -->
-<td id="gameCenter" style="background-color:#3abff0;height:500px;width:400px;">
+<td  id="gameCenter" style="background-color:#3abff0; width: 100%; min-height: 75%;">
     <dl>
-        <dt><a href="javascript:load_snake();"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:40px" src="https://i.postimg.cc/1RYr8Z5h/Screen-Shot-2018-10-12-at-9-06-29-PM.png" alt="Valid CSS!" /></a></dt>
-        <dt><a href="javascript:load_breakout();"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:590px" src="https://i.postimg.cc/kg0mq5pj/321.png" alt="Valid CSS!" /></a></dt>
-        <dt><a href="javascript:load_pong();"><img style="border:0;width:500px;height:500px; margin-top: -258px;left:1140px" src="https://i.postimg.cc/hjM6z42R/123.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="javascript:load_snake();"><img style="border:0;width:30%;height:56%; top:27%;left:2%" src="https://i.postimg.cc/1RYr8Z5h/Screen-Shot-2018-10-12-at-9-06-29-PM.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="javascript:load_breakout();"><img style="border:0;width:30%;height:56%; top:27%;left:35%" src="https://i.postimg.cc/kg0mq5pj/321.png" alt="Valid CSS!" /></a></dt>
+        <dt><a href="javascript:load_pong();"><img style="border:0;width:30%;height:56%;top:27%;left:68%" src="https://i.postimg.cc/hjM6z42R/123.png" alt="Valid CSS!" /></a></dt>
     </dl>
  </td>
 </tr>
@@ -212,7 +221,7 @@
         </form>  
     </div>-->
     
-    <form style="margin-top: -650px; margin-right:50px " action="enter.php" method="post"           onsubmit="return enter()" align="right"> 
+    <form style="margin-top:2%; margin-right:2% " action="enter.php" method="post"  onsubmit="return enter()" align="right"> 
         Username: <input type="text" name="username" id="username"><br> Password: <input
         type="password" name="password" id="password"><br> <input
         type="submit" value="Login">  <input type="button" value="Register" onclick="register();"> 
