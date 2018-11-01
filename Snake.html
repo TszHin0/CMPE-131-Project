@@ -12,10 +12,9 @@
 		<style>
 			#gameCanvas {
     			position: absolute;
-    			top:0;
+    			top: 0;
     			bottom: 0;
-    			left: 0;
-    			right: 0;
+    			left: 30%;
     			margin:auto;
 			}
 			#score {
@@ -23,7 +22,7 @@
 				font-size: 150px;
 				position: absolute;
 				top: 50%;
-				left: 70%;
+				left: 60%;
 			}
 		</style>
 
@@ -48,7 +47,7 @@
 					alert("You died");
 					return;
 				}
-        		setTimeout(function onload() {
+        		setTimeout(function onTick() {
 					snake();
 					main();
         		}, moveSpeed)
