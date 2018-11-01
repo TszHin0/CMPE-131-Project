@@ -6,6 +6,7 @@
 	
 		<body>
 			<canvas id="gameCanvas" width="400" height="400"></canvas>
+			<div id="score">0</div>
 		</body>
 
 		<style>
@@ -17,9 +18,18 @@
     			right: 0;
     			margin:auto;
 			}
+			#score {
+				text-align: center;
+				font-size: 150px;
+				position: absolute;
+				top: 50%;
+				left: 70%;
+			}
 		</style>
 
 		<script>
+			var moveSpeed = 100
+			var score = 0;
 			var posX = 200;
 			var posY = 200;
 			var speed = 10;
@@ -38,10 +48,11 @@
 					alert("You died");
 					return;
 				}
-        		setTimeout(function onTick() {
+        		setTimeout(function onload() {
 					snake();
-        			main();
-        		}, 70)
+					main();
+        		}, moveSpeed)
+
 			}
 			
 			function snake() {
@@ -87,6 +98,10 @@
 				}
 			
 				if(foodX == posX && foodY == posY) {
+					score += 10;
+					if(moveSpeed > 5)
+						moveSpeed -= 5;
+					document.getElementById('score').innerHTML = score;
 					length++;
 					foodX = Math.floor(Math.random() * canvas.width / speed) * speed;
 					foodY = Math.floor(Math.random() * canvas.height / speed) * speed;
