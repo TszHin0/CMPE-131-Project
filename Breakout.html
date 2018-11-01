@@ -81,6 +81,7 @@ function DetectionOne()
   {
     for(var r=0; r<brick_Row_Count; r++) 
     {
+      // Make each brick become 2D array element
       var b = bricks[c][r];
       if(b.status == 1) 
       {
@@ -118,6 +119,7 @@ function drawPaddle() {
 function drawBricks() {
   for(var c=0; c<brick_Column_Count; c++) {
     for(var r=0; r<brick_Row_Count; r++) {
+      // Check each brick's status
       if(bricks[c][r].status == 1) {
         var brickX = (r*(brick_Width+brick_Padding))+brick_setLeft;
         var brickY = (c*(brick_Height+brick_Padding))+brick_setTop;
@@ -157,26 +159,32 @@ function drawLives() {
 // Moving controls and detect game over
 function Controls()
 {
+  // Check x-axis
   if(x + dx > canvas.width-ball_Radius || x + dx < ball_Radius) {
     dx = -dx;
   }
+  // Check y-axis
   if(y + dy < ball_Radius) {
     dy = -dy;
   }
+  // Check y-axis
   else if(y + dy > canvas.height-ball_Radius) {
     if(x > paddleX && x < paddleX + paddle_Width) {
       dy = -dy;
     }
+    // reduce lives if ball out of range
     else {
       lives--;
       if(lives == 0) 
       {
+        // Print out game over info if no more lives
         drawOver();
-        alert("GAME OVER"); // Print out game over info
+        alert("GAME OVER");
         document.location.reload();
       }
       else {
-        x = canvas.width/2; //startover
+        // Startover if there are lives left
+        x = canvas.width/2;
         y = canvas.height-30;
         dx = 5;
         dy = -5;
@@ -194,7 +202,7 @@ function Controls()
   y += dy;
 }
 
-// Print everything for level 1
+// Print everything
 function levelOne() 
 {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
