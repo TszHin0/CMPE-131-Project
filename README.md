@@ -8,7 +8,7 @@ Github page : https://tszhin0.github.io/CMPE-131-Project-Group1/index.html
 - Cong He
 
 ## Project name: 
-### Spartans Games Web
+Spartans Games Web
 
 ## Including:
 One Webpage and three classic games - Snake, Pong, Breakout
