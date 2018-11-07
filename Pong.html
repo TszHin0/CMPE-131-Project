@@ -8,12 +8,12 @@
        {
          display: block;
          margin: auto;
-         background: pink;
+         background: black;
+        margin-top: 10%;
        }
         position: absolute;
         {
-    			top: 0;
-    			bottom: 0;
+    			top: 20%;
     			left: 30%;
     			margin:auto;
         }
@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<canvas id="PongCanvas" width="900" height="720"></canvas>
+<canvas id="PongCanvas" width="600" height="390"></canvas>
 <script>
 
   // add menu to select whether player or com
@@ -46,13 +46,13 @@
 
   // left paddle
   var LeftPaddleWidth = 15;
-  var LeftPaddleHeight = 90;
+  var LeftPaddleHeight = 80;
   var LeftPaddleX = 10;
   var LeftPaddleY = canvas.height / 2 - LeftPaddleHeight / 2;
 
   // right paddle
   var RightPaddleWidth = 15;
-  var RightPaddleHeight = 90;
+  var RightPaddleHeight = 80;
   var RightPaddleX = canvas.width - (RightPaddleWidth + 10);
   var RightPaddleY = canvas.height / 2 - RightPaddleHeight / 2;
 
@@ -67,7 +67,7 @@
   //  Displays scoreboard
   function drawScore() 
   {
-    ctx.font = "80px Roboto";
+    ctx.font = "65px Roboto";
     ctx.fillStyle = "white";
     ctx.fillText(leftScore, (canvas.width / 2) - 80, 80);
     ctx.fillText(rightScore, (canvas.width / 2) + 40, 80);
