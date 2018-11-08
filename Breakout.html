@@ -149,16 +149,9 @@ function drawBricks() {
 }
 // Drawing Functions (User info)
 function drawScore() {
-  ctx.font = "16px Arial";
   ctx.fillStyle = "#4AA2EF";
+  ctx.font = "bold 12pt Arial";
   ctx.fillText("Score: "+score, 8, 20);
-}
-//
-function drawTitle() {
-  ctx.font = "16px Arial";
-  ctx.fillStyle = "#4AA2EF";
-  ctx.font = "bold 14pt Arial";
-  ctx.fillText("<BREAKOUT>", 184, 20);
 }
 
 function drawOver() {
@@ -167,8 +160,8 @@ function drawOver() {
   ctx.fillText("GAME OVER", canvas.length/2,canvas.width/2);
 }
 function drawLives() {
-  ctx.font = "16px Arial";
   ctx.fillStyle = "#4AA2EF";
+  ctx.font = "bold 12pt Arial";
   ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
 
@@ -226,7 +219,6 @@ function levelOne()
   drawBall();
   drawPaddle();
   drawScore();
-  drawTitle();
   drawLives();
   DetectionOne();
   Controls();
