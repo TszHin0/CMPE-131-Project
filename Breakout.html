@@ -6,15 +6,15 @@
          display: block;
          margin: auto;
          margin-top: 10%;
-         background: #d6e84d;
+         background: #1E1C1F;
         
         }
         
         position: absolute;
         {
-    			top: 20%;
-    			left: 20%;
-    			margin:auto;
+          top: 20%;
+          left: 20%;
+          margin:auto;
         }
         
     </style>
@@ -30,8 +30,8 @@ var ctx = canvas.getContext("2d");
 var ball_Radius = 8;
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 5;
-var dy = -5;
+var dx = 4.5;
+var dy = -4.5;
 var paddle_Height = 8;
 var paddle_Width = 90;
 var paddleX = (canvas.width-paddle_Width)/2;
@@ -118,14 +118,14 @@ function DetectionOne()
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, ball_Radius, 0, Math.PI*2);
-  ctx.fillStyle = "#DC143C";
+  ctx.fillStyle = "#F67534";
   ctx.fill();
   ctx.closePath();
 }
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, canvas.height-paddle_Height, paddle_Width, paddle_Height);
-  ctx.fillStyle = "#696969";
+  ctx.fillStyle = "#E1E0DF";
   ctx.fill();
   ctx.closePath();
 }
@@ -140,7 +140,7 @@ function drawBricks() {
         bricks[c][r].y = brickY;
         ctx.beginPath();
         ctx.rect(brickX, brickY, brick_Width, brick_Height);
-        ctx.fillStyle = "#4AA2EF";
+        ctx.fillStyle = "#9B27F3";
         ctx.fill();
         ctx.closePath();
       }
@@ -153,11 +153,14 @@ function drawScore() {
   ctx.fillStyle = "#4AA2EF";
   ctx.fillText("Score: "+score, 8, 20);
 }
-function drawLevel() {
+//
+function drawTitle() {
   ctx.font = "16px Arial";
   ctx.fillStyle = "#4AA2EF";
-  ctx.fillText("Level: "+level, 210, 20);
+  ctx.font = "bold 14pt Arial";
+  ctx.fillText("<BREAKOUT>", 184, 20);
 }
+
 function drawOver() {
   ctx.font = "60px Arial";
   ctx.fillStyle = "#ED3913";
@@ -199,8 +202,8 @@ function Controls()
         // Startover if there are lives left
         x = canvas.width/2;
         y = canvas.height-30;
-        dx = 5;
-        dy = -5;
+        dx = 4.5;
+        dy = -4.5;
         paddleX = (canvas.width-paddle_Width)/2;
       }
     }
@@ -223,7 +226,7 @@ function levelOne()
   drawBall();
   drawPaddle();
   drawScore();
-  drawLevel();
+  drawTitle();
   drawLives();
   DetectionOne();
   Controls();
