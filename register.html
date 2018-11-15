@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<meta charset="UTF-8"> 
+<title>Registration System</title> 
+<style type="text/css"> 
+    form{ 
+        text-align: center; 
+    } 
+</style> 
+</head> 
+<body> 
+  <form action="register.php" method="post" name="form_register"
+    onsubmit="return check()"> 
+        Username: <input type="text" name="username" id="username"><br> 
+        Password: <input type="password" name="password" id="password"><br>Conform Password: <input type="password" name="assertpassword" id="assertpassword"><br> 
+        <input type="submit" value="Register"> 
+  </form>  
+  <script type="text/javascript"> 
+    function check() {  //check information
+      var username=document.getElementById("username").value;  //check username
+      var password=document.getElementById("password").value;  //check password
+      var assertpassword=document.getElementById("assertpassword").value; 
+      var regex=/^[/s]+$/; 
+        
+      if(regex.test(username)||username.length==0){  //Determine username whether or not invalid or include illegal characters
+          
+        alert("Username is invalid."); 
+        return false; 
+      } 
+      if(regex.test(password)||password.length==0){  //Determine password whether or not invalid or include illegal characters
+          
+        alert("Password not given"); 
+        return false;     
+      } 
+      if(password!=assertpassword){  //Double check password whether or not match with last time 
+        alert("Password doesn't match."); 
+        return false; 
+      } 
+    } 
+  </script> 
+</body> 
+</html> 
