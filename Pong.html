@@ -23,11 +23,9 @@
 
 <canvas id="PongCanvas" width="600" height="390"></canvas>
 <script>
-
   // add menu to select whether player or com
   // ai should be set to follow ball x pos
   // convert paddles into class objects
-
   /* computer play
   var ai_paddle = ;
   
@@ -37,25 +35,25 @@
   var canvas = document.getElementById("PongCanvas");
   var ctx = canvas.getContext("2d");
   var x = canvas.width/2;
-  var y = canvas.height-30;
+  var y = canvas.height/2;
   
   // ball velocity and circumference
-  var ball_x = 2;
-  var ball_y = -2;
+  var ball_x = 1;
+  var ball_y = -1;
   var ballRadius = 10;
-
+    
   // left paddle
   var LeftPaddleWidth = 15;
   var LeftPaddleHeight = 80;
   var LeftPaddleX = 10;
   var LeftPaddleY = canvas.height / 2 - LeftPaddleHeight / 2;
-
+    
   // right paddle
   var RightPaddleWidth = 15;
   var RightPaddleHeight = 80;
   var RightPaddleX = canvas.width - (RightPaddleWidth + 10);
   var RightPaddleY = canvas.height / 2 - RightPaddleHeight / 2;
-
+    
   // user key inputs
   var leftUpPressed = false;
   var leftDownPressed = false;
@@ -63,7 +61,7 @@
   var rightDownPressed = false;
   var leftScore = 0;
   var rightScore = 0;
-
+    
   //  Displays scoreboard
   function drawScore() 
   {
@@ -72,7 +70,7 @@
     ctx.fillText(leftScore, (canvas.width / 2) - 80, 80);
     ctx.fillText(rightScore, (canvas.width / 2) + 40, 80);
   }
-
+    
   // Displays ball
   function drawBall() 
   {
@@ -82,7 +80,7 @@
     ctx.fill();
     ctx.closePath();
   }
-
+    
    // Draw left paddle
    function drawLeftPaddle() 
   {
@@ -91,7 +89,6 @@
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
-
     // Speed of left paddle
     if (leftDownPressed && LeftPaddleY < canvas.height - LeftPaddleHeight) 
     {
@@ -102,7 +99,7 @@
       LeftPaddleY -= 8;
     }
   }
-
+    
   // Draw right paddle
   function drawRightPaddle()
    {
@@ -111,7 +108,6 @@
     ctx.fillStyle = "white";
     ctx.fill();
     ctx.closePath();
-
     // Speed of right paddle
     if (rightDownPressed && RightPaddleY < canvas.height - RightPaddleHeight) 
     {
@@ -122,7 +118,6 @@
       RightPaddleY -= 8;
     }
   }
-
   // Uses ASCII number for keys
   // Player 1 - W and S
   // Player 2 - Up Arrow and Down Arrow 
@@ -147,7 +142,6 @@
         rightDownPressed = true;
       }
   }
-
   // Stops paddle when user is not giving input
   function keyup(user)
   {
@@ -168,21 +162,34 @@
         rightDownPressed = false;
       }
   }
-
   // Left paddle collision physics
   function collisionLeftPaddle()
   {
-     if ((x - ballRadius) <= 5 + LeftPaddleWidth) 
+     if ((x - ballRadius) <= 15 + LeftPaddleWidth) 
      {
-       if (y >LeftPaddleY && y < LeftPaddleY + LeftPaddleHeight)
+       if (y > LeftPaddleY && y < LeftPaddleY + LeftPaddleHeight)
        {
-         ball_x = -ball_x;
+          ball_x = -ball_x;
        }
-       else if ((x - ballRadius) <= 0)
+       
+       // suppose to handle top and bottom of paddles, but is not working properly
+       
+      /*if (LeftPaddleX <= x && x < LeftPaddleY + LeftPaddleHeight)
+      {
+      	  ball_y = -ball_y
+      }
+       
+        if (LeftPaddleX >= x && y > LeftPaddleY)
+       {
+      	  ball_y = -ball_y
+
+       }
+       */
+       
+        else if ((x - ballRadius) <= 0)
        {
          rightScore++;
-         x = canvas.width / 2;
-         y = canvas.height / 2;
+        ball_x = -ball_x;
        }
      }
   }
@@ -190,7 +197,7 @@
   // Right paddle collision physics
   function collisionRightPaddle() 
   {
-    if ((x + ballRadius) >= canvas.width - (RightPaddleWidth + 5)) 
+    if ((x + ballRadius) >= canvas.width - (RightPaddleWidth + 15)) 
     {
       if (y > RightPaddleY && y < RightPaddleY + RightPaddleHeight)
       {
@@ -199,8 +206,7 @@
       else if (x + ballRadius >= canvas.width) 
       {
         leftScore++;
-        x = canvas.width / 2;
-        y = canvas.height / 2;
+        ball_x = -ball_x;
       }
     }
   }
@@ -210,14 +216,13 @@
   {
     collisionLeftPaddle();
     collisionRightPaddle();
-
     // Makes sure ball doesn't go out of bounds for y portion of canvas
     if (((y - ballRadius) <= 0) || ((y + ballRadius) >= canvas.height)) 
     {
         ball_y = -ball_y;
     }
-  }
-
+  }  
+  
   // Puts everything together
   function draw() 
   {
@@ -235,7 +240,6 @@
   setInterval(draw, 10);
   document.addEventListener("keydown", keydown, false);
   document.addEventListener("keyup", keyup, false);
-
 </script>
 </body>
 </html>
