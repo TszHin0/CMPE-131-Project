@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <title>About Us</title>
+    <style>
+        body {
+            background-color: darkturquoise; font-family: fantasy; 
+        }
+        
+        input.yellow {
+            font-family: fantasy; color: black;background-color: white;
+        }
+        
+        textarea {
+            font-family: fantasy; color: black;background-color: white;
+        }
+        
+        select { 
+            font-family: fantasy; color: black;
+        }
+        
+        div_req {
+            font-size: 20px; 
+        }
+        #hdr {
+            font-family:fantasy;
+            font-size:  15pt;
+            top: 13px; 
+            margin-left:55%;
+            margin-top:-40%;
+            font-weight: bolder;
+        }
+    </style>
+    </head>
+        <body>
+        <section>
+            <h1 style="margin-top: 10%;margin-left: 15%;">
+                <p style="font-size:25px; font-family: fantasy;">Team memebers:</p><br>
+                <p style="font-size: 20px; font-family: fantasy"><img src='https://i.postimg.cc/MThkmdV6/boy.png' border='0' alt='Dylan'/> Dylan Zhang:  Web Developer, Web Design</p><br>
+                <p style="font-size: 20px; font-family: fantasy"><img src='https://i.postimg.cc/YC3HBNKR/man.png' border='0' alt='Tsz'/> Tsz Hin Chan: Game Developer - Snake , Web Design</p><br>
+                <p style="font-size: 20px; font-family: fantasy"><img src='https://i.postimg.cc/d38fmvJ6/boy-3.png' border='0' alt='Derrick'/> Derrick Lien : Game Developer - Pong , Web Design</p><br>
+                <p style="font-size: 20px; font-family: fantasy"><img src='https://i.postimg.cc/PrnsLVdK/boy-2.png' border='0' alt='Cong'/> Cong He : Game Developer - Breakout , Web Design</p>
+            </h1>
+            <div id="hdr"><p>Feedback: </p>
+            <p class="div_req">Required fidlds denoted by *</p>
+        <form id="div1" method="post" action="mailto:zh_zachary@yahoo.com" enctype="text/plain">
+            <table>
+        <tbody>
+        <tr>
+            <td>
+               Name:* <textarea name="Name" rows="1" cols="20"></textarea>
+            </td>
+            <td>
+               Age:* <textarea name="Age" rows="1" cols="20"></textarea>
+            </td>
+            </tr>
+                </tbody> 
+            </table>
+            <p>1. I spend the following amount of time per week playing games:</p>
+            <input type="radio" name="Q1" value="1-5">1 to 5 hours
+            <input type="radio" name="Q1" value="6-20">6 to 20 hours
+            <input type="radio" name="Q1" value="21-40">21 to 40 hours
+            <input type="radio" name="Q1" value="more than 40">More than 40 hours
+            
+            <p>2. Please choose how you CURRENTLY play MOST of your games.
+        <select name="Q2">
+            <option value=" " selected="selected">-------select one-------</option>
+            <option value="Xbox">Xbox</option>
+            <option value="Phone or tablet">Phone or tablet</option>
+            <option value="playstation">Playstation</option>
+            <option value="Computer">Computer</option>
+            <option value="Nintendo">Nintendo</option>
+            <option value="Mobile Games">Mobile Games</option>
+            <option value="others">Other</option>
+            <td>
+               <textarea name="Other" rows="1" cols="20"></textarea>(Other)
+            </td>
+                </select>
+            <p>3. What genres of games do you normally paly? (you may select more than one)
+                <br>
+                <input type="checkbox" name="Q3" value="First Person Shooter">First Person Shooter
+                <input type="checkbox" name="Q3" value="Sports">Sports
+                <input type="checkbox" name="Q3" value="Action/Adventure">Action/Adventure
+                <input type="checkbox" name="Q3" value="Simulation">Simulation
+                <input type="checkbox" name="Q3" value="Third  Person Shooter">Third  Person Shooter
+                <input type="checkbox" name="Q3" value="Educational">Educational
+                <input type="checkbox" name="Q3" value="Survival Horror">Survival Horror
+                <input type="checkbox" name="Q3" value="Puzzle">Puzzle
+                <input type="checkbox" name="Q3" value="Role Playing">Role Playing
+                <input type="checkbox" name="Q3" value="Real Time Strategy">Real Time Strategy
+                
+            </p>
+            <p>Comments/Suggestions/Questions:
+                <br>
+                <textarea name="comments" rows="5" cols="100"></textarea>
+            <p>
+                <input type="submit" class="yellow" value="Submit" onclick="return Validate(this.form)">
+                <br>
+                <input class="yellow" type="reset" value="Reset">
+            </p>
+                </form>
+            </div>
+            </section>     
+    </body>
+</html>
+        
+        
+        
+        
+        
+        
+        
+        
